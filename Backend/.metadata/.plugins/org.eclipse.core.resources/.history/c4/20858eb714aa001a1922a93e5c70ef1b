@@ -1,0 +1,29 @@
+package com.capgemini.carwash.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.capgemini.carwash.entity.PromoCode;
+import com.capgemini.carwash.repository.PromoCodeRepository;
+import com.capgemini.carwash.service.PromoCodeService;
+
+@Service
+public class PromoCodeServiceImpl implements PromoCodeService{
+
+	@Autowired
+	private PromoCodeRepository promoCodeRepository;
+	
+	@Override
+	public List<PromoCode> getAllPromoCode() {
+		return promoCodeRepository.findAll();
+	}
+
+	@Override
+	public Optional<PromoCode> getByPCId(Long promocodeid) {
+		Optional<PromoCode> pmOptional = promoCodeRepository.findByPromocodeid(promocodeid);
+		return pmOptional;
+	}
+}

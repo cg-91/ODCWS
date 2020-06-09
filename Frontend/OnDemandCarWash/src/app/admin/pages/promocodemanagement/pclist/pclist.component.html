@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <div style="float: left;">
+            <h4 class="card-title">Promo Code Listing</h4>
+            </div>
+            <div style="float: right;">
+            <button type="button" class="btn btn-primary" routerLink="/pcsave">Add</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>
+                    Promo Code
+                  </th>
+                  <th>
+                    Discount
+                  </th>
+                  <th>
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pc of promocodes">
+                  <td>
+                    {{ pc.promocode }}
+                  </td>
+                  <td>
+                    {{ pc.percentage }} %
+                  </td>
+                  <td>
+                    <i class="fa fa-trash"></i> &nbsp;&nbsp;
+                    <i class="fa fa-edit"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

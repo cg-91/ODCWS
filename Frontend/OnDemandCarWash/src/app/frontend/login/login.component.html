@@ -1,0 +1,50 @@
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">User Login</h4>
+            <form class="form-sample" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" for="email">Username</label>
+                            <div class="col-sm-9">
+                                <input type="text" formControlName="email" class="form-control"/>
+                                    <!-- [ngClass]="{ 'is-invalid': submitted && f.username.errors }"  -->
+                                <!-- <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Username is required</div>
+                                </div> -->
+                            </div>
+                        </div>                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" for="password">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" formControlName="password" class="form-control" />
+                                    <!-- [ngClass]="{ 'is-invalid': submitted && f.password.errors }" /> -->
+                                <!-- <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Role</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" formControlName="role" placeholder="Roles">
+                                    <option disabled selected>Select Role</option>
+                                    <option>customer</option>
+                                    <option>washer</option>
+                                    <option>admin</option>
+                                </select>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <button [disabled]="loading" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Login
+                    </button>&nbsp;
+                    <button class="btn btn-dark" routerLink="/signup">Register</button>&nbsp;
+                    <button class="btn btn-light" routerLink="/home">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

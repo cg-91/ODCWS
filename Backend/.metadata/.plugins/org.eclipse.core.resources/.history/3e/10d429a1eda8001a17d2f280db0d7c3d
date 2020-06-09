@@ -1,0 +1,22 @@
+package com.capgemini.carwash.feignclient.entity;
+
+import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.Data;
+
+@Data
+@Document(collection = "tbl_serviceplan")
+public class ServicePlan {
+
+	@Id
+	private Long serviceplanid;
+	
+	@NotEmpty
+	private String 	spname;
+	
+	@NotEmpty
+	private Double price;
+}

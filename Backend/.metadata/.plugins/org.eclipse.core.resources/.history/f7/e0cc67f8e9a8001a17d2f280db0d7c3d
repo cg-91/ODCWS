@@ -1,0 +1,90 @@
+package com.capgemini.carwash.controller;
+
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.capgemini.carwash.entity.Customer;
+import com.capgemini.carwash.entity.User;
+import com.capgemini.carwash.entity.Washer;
+import com.capgemini.carwash.repository.WasherRepository;
+import com.capgemini.carwash.service.UserService;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+@RestController
+@CrossOrigin
+@RequestMapping("/api")
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private WasherRepository repo;
+	
+//	@Autowired
+//	private WebClient.Builder webClientBuilder;
+//	
+//	@GetMapping("/customerList")
+//	public String getCustomerList() {
+//		
+//		Customer cust = webClientBuilder.build()
+//			.get()
+//			.uri("http://localhost:8081/api/customerList/")
+//			.retrieve()
+//			.bodyToMono(Customer.class)
+//			.block();
+//		
+//		Map<Object, Object> customerMap = new HashMap<Object, Object>();
+//		customerMap.put("status", "success");
+//		customerMap.put("data", cust.getEmail());
+//		Gson gson = new Gson();
+//        String json = gson.toJson(customerMap);
+//		return json;
+//	}
+	
+
+//	@GetMapping("/customerList")
+//	public String getCustomerList() {
+//		Map<Object, Object> customerMap = new HashMap<Object, Object>();
+//		customerMap.put("status", "success");
+//		customerMap.put("data", userService.getCustomerListing());
+//		Gson gson = new Gson();
+//        String json = gson.toJson(customerMap);
+//		return json;
+//	 }
+	
+	
+	
+	
+//	
+//	@GetMapping("/washerlist")
+//	public String getWasherList() {
+//		Map<Object, Object> washerMap = new HashMap<Object, Object>();
+//		washerMap.put("status", "success");
+//		washerMap.put("data", repo.findAll());
+//		Gson gson = new Gson();
+//        String json = gson.toJson(washerMap);
+//		return json;
+//	 }
+	
+//	@PostMapping("/register")
+//	public User registerUserDetails(@RequestBody User user) {
+//		return userService.save(user);
+//	}
+//	
+//	@PostMapping("/registerwasher")
+//	public Washer registerWasherDetails(@RequestBody Washer washer) {
+//		return repo.save(washer);
+//	}
+}

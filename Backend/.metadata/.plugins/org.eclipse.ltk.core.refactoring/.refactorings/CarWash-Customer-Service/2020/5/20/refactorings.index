@@ -1,0 +1,32 @@
+1589176598250	Delete element
+1589222799126	Delete element
+1589222915788	Delete elements
+1589223013745	Delete element
+1589223091204	Delete element
+1589223169423	Delete element
+1589223186029	Delete element
+1589223198188	Rename package 'com.capgemini.service.impl'
+1589223213462	Delete element
+1589223284665	Delete element
+1589299628174	Rename type 'SpringAngularAuthApplication'
+1589299660491	Rename type 'User'
+1589299976850	Rename type 'UserRepository'
+1589346524638	Copy packages
+1589347290865	Copy compilation unit
+1589347341376	Rename type 'CarWashAdminApplication'
+1589568364365	Copy compilation unit
+1589605507551	Rename package 'com.capgemini'
+1589605537582	Rename package 'com.capgemini.config'
+1589605548799	Rename package 'com.capgemini.controller'
+1589605557047	Rename package 'com.capgemini.carwashcontroller'
+1589605566297	Rename package 'com.capgemini.entity'
+1589605576932	Rename package 'com.capgemini.exception'
+1589605586447	Rename package 'com.capgemini.payload'
+1589605592926	Rename package 'com.capgemini.carwashh.payload'
+1589605601359	Rename package 'com.capgemini.repository'
+1589605616275	Rename package 'com.capgemini.service'
+1589605775878	Rename type 'CutomerProfile'
+1589606211733	Rename package 'com.capgemini.carwash'
+1589606221503	Rename package 'com.capgemini.carwash.run'
+1589654144653	Copy compilation unit
+1589654148471	Delete element

@@ -1,0 +1,17 @@
+package com.capgemini.carwash.feignclient.service;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.capgemini.carwash.entity.Customer;
+
+@FeignClient(name = "CarWash-Customer", url = "http://localhost:8081/api")
+public interface FeignClientService {
+	
+	@GetMapping("/customerList")
+	public ResponseEntity<?> getAllCustomers();
+
+}

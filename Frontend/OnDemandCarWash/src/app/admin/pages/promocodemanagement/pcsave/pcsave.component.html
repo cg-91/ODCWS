@@ -1,0 +1,33 @@
+<div class="col-12 grid-margin">
+  <div class="card">
+      <div class="card-body">
+          <form class="form-sample" [formGroup]="pcFrom" (ngSubmit)="onSubmit()">
+              <p class="card-description">
+                Create Promo Codes
+              </p>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Promo Code</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" formControlName="promocode" placeholder="Promo code"/>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Discout %</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" formControlName="percentage" placeholder="Discount"/>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+              <button class="btn btn-light" routerLink="/pclist">Cancel</button>
+          </form>
+      </div>
+  </div>
+</div>

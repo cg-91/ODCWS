@@ -1,0 +1,5 @@
+package com.capgemini.carwash.feignclient.service;
+
+public interface FeignClientService {
+
+}
