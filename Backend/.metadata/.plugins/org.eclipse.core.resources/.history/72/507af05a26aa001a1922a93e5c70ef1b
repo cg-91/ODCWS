@@ -1,0 +1,78 @@
+package com.capgemini.carwash.controller;
+
+import static org.springframework.http.ResponseEntity.ok;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.capgemini.carwash.config.JwtTokenProvider;
+import com.capgemini.carwash.entity.Customer;
+import com.capgemini.carwash.repository.CustomerRepository;
+import com.capgemini.carwash.service.CustomUserDetailsService;
+
+import lombok.extern.slf4j.Slf4j;
+
+
+@CrossOrigin
+@RestController
+@RequestMapping("/api/auth")
+@Slf4j
+public class AuthController {
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
+
+	@Autowired
+	private JwtTokenProvider jwtTokenProvider;
+
+	@Autowired
+	private CustomerRepository customerRepository;
+
+	@Autowired
+	private CustomUserDetailsService userService;
+
+	@SuppressWarnings("rawtypes")
+	@PostMapping("/login")
+	public ResponseEntity login(@RequestBody AuthBody data) {
+		log.info("Customer Login Controller");
+		try {
+			String username = data.getEmail();
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, data.getPassword()));
+			String token = jwtTokenProvider.createToken(username, this.customerRepository.findByEmail(username).getRoles());
+			Map<Object, Object> model = new HashMap<>();
+			model.put("status", 200);
+			model.put("username", username);
+			model.put("token", token);
+//			model.put("data", data);
+			return ok(model);
+		} catch (AuthenticationException e) {
+			throw new BadCredentialsException("Invalid email/password supplied");
+		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	@PostMapping("/signup")
+	public ResponseEntity register(@RequestBody Customer cust) {
+		log.info("Signup Controller");
+		Customer userExists = userService.findUserByEmail(cust.getEmail());
+		if (userExists != null) {
+			throw new BadCredentialsException("User with username: " + cust.getEmail() + " already exists");
+		}
+		userService.saveUser(cust);
+		Map<Object, Object> model = new HashMap<>();
+		model.put("message", "User registered successfully");
+		return ok(model);
+	}
+}

@@ -30,11 +30,13 @@ public class UserController {
 			model.put("status", 200);
 			model.put("username", username);
 			model.put("token", password);
+			log.info("User Logged In");
 			return ResponseEntity.ok(model);
 		} else {
 			Map<Object, Object> model1 = new HashMap<>();
 			model1.put("status", 400);
 			model1.put("message", "Wrong Credentials");
+			log.error("Wrong Credentials");
 			return ResponseEntity.ok(model1);
 		}
 	}

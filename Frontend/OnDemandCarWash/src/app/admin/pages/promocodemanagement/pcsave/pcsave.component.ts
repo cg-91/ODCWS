@@ -42,6 +42,11 @@ export class PcsaveComponent implements OnInit {
         console.log(response);
       },
     )
+    this.gotoList();
+  }
+  
+  gotoList(){
+    this.router.navigate(['/pclist']);
   }
 
 }

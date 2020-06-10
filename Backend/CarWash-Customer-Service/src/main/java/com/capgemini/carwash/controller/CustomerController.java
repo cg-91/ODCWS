@@ -22,7 +22,7 @@ public class CustomerController {
 	
 	@GetMapping("/customerList")
 	public ResponseEntity<?> getAllCustomers(){
-		log.info("chandan");
+		log.info("---fetchging all the Customer details---");
 		return ResponseEntity.ok(service.getAllCustomers());
 	}
 	

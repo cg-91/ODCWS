@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.service.WasherService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class WasherController {
 
 	@Autowired
@@ -17,6 +20,7 @@ public class WasherController {
 	
 	@GetMapping("/washer/washerList")
 	public ResponseEntity<?> getAllWasher(){
+		log.info("---fetchging all the Washer details---");
 		return ResponseEntity.ok(service.getAllWasher());
 	}
 }

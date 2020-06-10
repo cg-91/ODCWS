@@ -1,22 +1,33 @@
-<h3>Create ServicePlan</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Service Plan</label>
-      <input type="text" class="form-control" id="addonname"  name="addonname">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Price</label>
-      <input type="text" class="form-control" id="price"  name="price">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>&nbsp;
-    <button class="btn btn-light">Cancel</button>
-  </form>
-</div>
-
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+<div class="col-12 grid-margin">
+  <div class="card">
+      <div class="card-body">
+          <form class="form-sample" [formGroup]="spFrom" (ngSubmit)="onSubmit()">
+              <p class="card-description">
+                Create Service Plan
+              </p>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Service Plan</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" formControlName="spname" placeholder="ServicePlan"/>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Price</label>
+                          <div class="col-sm-9">
+                              <input type="text" class="form-control" placeholder="price" formControlName="price"/>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+              <button class="btn btn-light" routerLink="/splist">Cancel</button>
+          </form>
+      </div>
+  </div>
 </div>

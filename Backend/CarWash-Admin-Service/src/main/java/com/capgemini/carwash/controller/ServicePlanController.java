@@ -51,7 +51,7 @@ public class ServicePlanController {
 	
 	
 	@GetMapping("/serviceplan/{id}")
-	public ResponseEntity<?> getPromoCodeById(@PathVariable("id") Long serviceplanid){
+	public ResponseEntity<?> getPromoCodeById(@PathVariable("id") String serviceplanid){
 		Optional<ServicePlan> spOptional = servicePlanRepository.findByServiceplanid(serviceplanid);
 		log.info("---Searching for a SevicePlan with id {} ", serviceplanid);
 		if(!spOptional.isPresent()) {
@@ -73,7 +73,7 @@ public class ServicePlanController {
 	}
 	
 	@DeleteMapping("/serviceplan/delete/{id}")
-	public ResponseEntity<?> deleteBySPId(@PathVariable("id") Long serviceplanid){
+	public ResponseEntity<?> deleteBySPId(@PathVariable("id") String serviceplanid){
 		Optional<ServicePlan> spOptional = servicePlanService.getBySPId(serviceplanid);
 		if(!spOptional.isPresent()) {
 			servicePlanRepository.deleteById(serviceplanid);

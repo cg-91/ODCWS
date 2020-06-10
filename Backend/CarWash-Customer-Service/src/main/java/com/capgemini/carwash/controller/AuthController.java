@@ -46,7 +46,7 @@ public class AuthController {
 	@SuppressWarnings("rawtypes")
 	@PostMapping("/login")
 	public ResponseEntity login(@RequestBody AuthBody data) {
-		log.info("Login Controller");
+		log.info("Customer Login Controller");
 		try {
 			String username = data.getEmail();
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, data.getPassword()));
@@ -58,6 +58,7 @@ public class AuthController {
 //			model.put("data", data);
 			return ok(model);
 		} catch (AuthenticationException e) {
+			log.error("Invalid email/password supplied");
 			throw new BadCredentialsException("Invalid email/password supplied");
 		}
 	}
@@ -65,9 +66,10 @@ public class AuthController {
 	@SuppressWarnings("rawtypes")
 	@PostMapping("/signup")
 	public ResponseEntity register(@RequestBody Customer cust) {
-		log.info("Signup Controller");
+		log.info("Customer Signup Controller");
 		Customer userExists = userService.findUserByEmail(cust.getEmail());
 		if (userExists != null) {
+			log.error("Username already exists");
 			throw new BadCredentialsException("User with username: " + cust.getEmail() + " already exists");
 		}
 		userService.saveUser(cust);

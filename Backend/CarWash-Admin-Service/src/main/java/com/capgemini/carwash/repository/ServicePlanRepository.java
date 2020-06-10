@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import com.capgemini.carwash.entity.ServicePlan;
 
 @Repository
-public interface ServicePlanRepository extends MongoRepository<ServicePlan, Long>{
+public interface ServicePlanRepository extends MongoRepository<ServicePlan, String>{
 
-	Optional<ServicePlan> findByServiceplanid(Long serviceplanid);
+	Optional<ServicePlan> findByServiceplanid(String serviceplanid);
 	
-	void deleteByServiceplanid(Long serviceplanid);
+	void deleteByServiceplanid(String serviceplanid);
 }

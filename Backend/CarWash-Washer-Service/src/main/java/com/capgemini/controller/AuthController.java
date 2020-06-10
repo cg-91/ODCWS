@@ -56,6 +56,7 @@ public class AuthController {
 			model.put("token", token);
 			return ok(model);
 		} catch (AuthenticationException e) {
+			log.error("Invalid email/password supplied");
 			throw new BadCredentialsException("Invalid email/password supplied");
 		}
 	}
@@ -66,6 +67,7 @@ public class AuthController {
 		log.info("Washer signup Controller");
 		Washer userExists = userService.findUserByEmail(cust.getEmail());
 		if (userExists != null) {
+			log.error("Username already exists");
 			throw new BadCredentialsException("User with username: " + cust.getEmail() + " already exists");
 		}
 		userService.saveUser(cust);

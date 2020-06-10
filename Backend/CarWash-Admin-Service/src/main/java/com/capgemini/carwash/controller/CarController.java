@@ -52,6 +52,7 @@ public class CarController {
 	
 	@GetMapping("/car/carlist")
 	public ResponseEntity<?> getAllCrsList(){
+		log.info("====fetchging all the Cars====");
 		return ResponseEntity.ok(carService.getAllCars());
 	}
 	
@@ -90,7 +91,8 @@ public class CarController {
 		if (carRepository.existsByCarid(carid)) {
 			carService.deleteCarById(carid);
 		}else {
-			throw new BadRequestException("Id dose not exist");
+			log.error("Id does not exist");
+			throw new BadRequestException("Id does not exist");
 		}
 		log.info("===Delete car details===");
 		return ResponseEntity.ok(carid);

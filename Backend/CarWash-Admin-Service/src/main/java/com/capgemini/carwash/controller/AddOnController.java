@@ -48,6 +48,7 @@ public class AddOnController {
 			log.error("Id "+ addonid + " is not existed");
 			ResponseEntity.badRequest().build();
 		}
+		log.info("---Fetching AddOn Details by id---");
 		return ResponseEntity.ok(addOn.get());
 	}
 	
@@ -59,6 +60,7 @@ public class AddOnController {
 			log.info("---Save AddOn details---");
 			return ResponseEntity.ok(addons);
 		}
+		log.error("Id is already exist");
 		throw new BadRequestException("Id is already exist");
 	}
 	

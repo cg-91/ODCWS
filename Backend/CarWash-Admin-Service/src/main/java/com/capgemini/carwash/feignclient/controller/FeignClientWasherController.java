@@ -20,7 +20,7 @@ public class FeignClientWasherController {
 	
 	@GetMapping("/washer/washerList")
 	public ResponseEntity<?> getAllCustomers(){
-		log.info("washer feign controller");
+		log.info("---fetchging all the Washer details from Washer Service---");
 		return ResponseEntity.ok(service.getAllWasher());
 	}
 	

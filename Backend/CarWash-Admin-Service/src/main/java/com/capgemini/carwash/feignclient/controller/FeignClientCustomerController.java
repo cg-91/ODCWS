@@ -20,7 +20,7 @@ public class FeignClientCustomerController {
 	
 	@GetMapping("/customerList")
 	public ResponseEntity<?> getAllCustomers(){
-		log.info("chandan");
+		log.info("---fetchging all the Customer details from Customer Service---");
 		return ResponseEntity.ok(service.getAllCustomers());
 	}
 	

@@ -38,11 +38,13 @@ public class FeignClientController {
 	
 	@GetMapping("/car/carlist")
 	public ResponseEntity<?> getAllCrsList(){
+		log.info("---fetchging all the Cars details from Admin Service---");
 		return ResponseEntity.ok(service.getAllCars());
 	}
 	
 	@GetMapping("/serviceplan/spList")
 	public ResponseEntity<?> getAllServicePlanList(){
+		log.info("---fetchging all the Service Plan details from Admin Service---");
 		return ResponseEntity.ok(service.getAllServicePlanList());
 	}
 }

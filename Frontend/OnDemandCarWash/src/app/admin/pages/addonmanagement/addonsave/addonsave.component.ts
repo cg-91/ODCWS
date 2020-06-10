@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddonService } from '../addon.service';
 import { Router } from '@angular/router';
-import { Addon } from '../addon';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -14,8 +13,8 @@ export class AddonsaveComponent implements OnInit {
   addon: any = {};
   addOnsFrom: FormGroup;
   step1: any = {};
-  submitted: boolean = false; 
-  
+  submitted: boolean = false;
+
   constructor(private addonService: AddonService, private router: Router,
     private formBuilder: FormBuilder) { }
 
@@ -28,24 +27,25 @@ export class AddonsaveComponent implements OnInit {
     )
   }
 
-  get f1(){
+  get f1() {
     return this.addOnsFrom.controls
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.addOnsFrom.value);
     this.submitted = true;
-    if(this.addOnsFrom.invalid){
-      return ;
+    if (this.addOnsFrom.invalid) {
+      return;
     }
     this.addonService.createAddOn(this.addOnsFrom.value).subscribe(
-      response=> {
+      response => {
         console.log(response);
       },
     )
-    }
+    this.gotoList();
+  }
 
-  // gotoList(){
-  //   this.router.navigate(['/addonlist']);
-  // }
+  gotoList(){
+    this.router.navigate(['/addonlist']);
+  }
 }

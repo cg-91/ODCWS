@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="CarWash-Washer"/>
-<aop-project name="CarWash-Customer"/>
-<aop-project name="CarWash-Admin"/>
+<aop-project name="CarWash-Customer-Service"/>
+<aop-project name="CarWash-Admin-Service"/>
+<aop-project name="CarWash-Washer-Service"/>
 <aop-project name="CarWash-EurekaServer"/>
 </aop-reference-model>

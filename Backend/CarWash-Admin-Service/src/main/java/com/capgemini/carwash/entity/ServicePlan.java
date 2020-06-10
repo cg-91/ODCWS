@@ -15,7 +15,7 @@ public class ServicePlan {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long serviceplanid;
+	private String serviceplanid;
 	
 	@NotEmpty
 	private String 	spname;

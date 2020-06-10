@@ -9,5 +9,5 @@ public interface ServicePlanService {
 
 	List<ServicePlan> getAllServicePlan();
 	
-	Optional<ServicePlan> getBySPId(Long serviceplanid);
+	Optional<ServicePlan> getBySPId(String serviceplanid);
 }
