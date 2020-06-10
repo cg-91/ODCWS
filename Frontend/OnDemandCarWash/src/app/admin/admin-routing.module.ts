@@ -23,32 +23,33 @@ import { WasherlistComponent } from './pages/washer/washerlist/washerlist.compon
 import { WashereditComponent } from './pages/washer/washeredit/washeredit.component';
 import { WashersaveComponent } from './pages/washer/washersave/washersave.component';
 import { AdminComponent } from './admin.component';
+import { AuthGuard } from '../frontend/helper/auth.guard';
 
 const routes: Routes = [
   
   {
     path: '', component: AdminComponent, children: [ 
-      { path: 'admin', redirectTo: '/dashboard', pathMatch: 'prefix' },
-      { path: 'carlist', component: CarlistComponent },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'addonlist', component: AddonlistComponent },
-      { path: 'addonedit', component: AddoneditComponent },
-      { path: 'addonsave', component: AddonsaveComponent },
-      { path: 'caredit', component: CareditComponent },
-      { path: 'carsave', component: CarsaveComponent },
-      { path: 'pcsave', component: PcsaveComponent },
-      { path: 'pcedit', component: PceditComponent },
-      { path: 'pclist', component: PclistComponent },
-      { path: 'spsave', component: SpsaveComponent },
-      { path: 'spedit', component: SpeditComponent },
-      { path: 'splist', component: SplistComponent },
-      { path: 'customerlist', component: CustomerlistComponent },
-      { path: 'customeredit', component: CustomereditComponent },
-      { path: 'washerlist', component: WasherlistComponent },
-      { path: 'washeredit', component: WashereditComponent },
-      { path: 'washersave', component: WashersaveComponent },
-      { path: 'ordermanagement', component: OrdermanagementComponent },
-      { path: 'reportmanagement', component: ReportmanagementComponent },
+      { path: 'admin', redirectTo: '/dashboard', pathMatch: 'prefix', canActivate: [AuthGuard]},
+      { path: 'carlist', component: CarlistComponent, canActivate: [AuthGuard] },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+      { path: 'addonlist', component: AddonlistComponent, canActivate: [AuthGuard] },
+      { path: 'addonedit', component: AddoneditComponent, canActivate: [AuthGuard] },
+      { path: 'addonsave', component: AddonsaveComponent, canActivate: [AuthGuard] },
+      { path: 'caredit', component: CareditComponent, canActivate: [AuthGuard] },
+      { path: 'carsave', component: CarsaveComponent, canActivate: [AuthGuard] },
+      { path: 'pcsave', component: PcsaveComponent, canActivate: [AuthGuard] },
+      { path: 'pcedit', component: PceditComponent, canActivate: [AuthGuard] },
+      { path: 'pclist', component: PclistComponent, canActivate: [AuthGuard] },
+      { path: 'spsave', component: SpsaveComponent, canActivate: [AuthGuard] },
+      { path: 'spedit', component: SpeditComponent, canActivate: [AuthGuard] },
+      { path: 'splist', component: SplistComponent, canActivate: [AuthGuard] },
+      { path: 'customerlist', component: CustomerlistComponent, canActivate: [AuthGuard] },
+      { path: 'customeredit', component: CustomereditComponent, canActivate: [AuthGuard] },
+      { path: 'washerlist', component: WasherlistComponent, canActivate: [AuthGuard] },
+      { path: 'washeredit', component: WashereditComponent, canActivate: [AuthGuard] },
+      { path: 'washersave', component: WashersaveComponent, canActivate: [AuthGuard] },
+      { path: 'ordermanagement', component: OrdermanagementComponent, canActivate: [AuthGuard] },
+      { path: 'reportmanagement', component: ReportmanagementComponent, canActivate: [AuthGuard] },
     ]
   },
 ];

@@ -28,13 +28,4 @@ public class OrderDetails {
 	@NotEmpty
 	private String orderStatus;
 	
-	@NotEmpty
-	private Integer quantity;
-	
-	@NotEmpty
-	private Double netAmount;
-	
-	@NotEmpty
-	private Double totalAmount;
-	
 }

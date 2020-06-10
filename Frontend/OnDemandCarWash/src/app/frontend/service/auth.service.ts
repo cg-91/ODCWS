@@ -8,6 +8,7 @@ import { Route } from '@angular/compiler/src/core';
 
 const backendApi = environment.backendApi;
 const frontendApi = environment.frontendApi;
+const frontendApi1 = environment.frontendApi1;
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +48,9 @@ export class AuthService {
       )
     }
     else if(user.role === 'admin'){
-      return this.http.post(backendApi + 'auth/login', user).pipe(
+      console.log(user);
+      
+      return this.http.post(frontendApi1 + 'auth/login', user).pipe(
         map(response=>{
           return response;
         }),

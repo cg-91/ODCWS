@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FrontendComponent } from './frontend.component';
 import { HomeComponent } from './home/home.component';
@@ -7,6 +7,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from '../frontend/helper/auth.guard';
+import { CustomerComponent } from './customer/customer.component';
 
 const routes: Routes = [
  
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'abc', component: AbcComponent, canActivate: [AuthGuard]},
       { path: 'login', component: LoginComponent},
       { path: 'signup', component: RegisterComponent},
+      { path: 'customer', component: CustomerComponent},
       { path: '**', component: PagenotfoundComponent }
     ]
   },

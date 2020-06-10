@@ -12,13 +12,13 @@ import { CommonService } from '../service/common.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-    loading = false;
-    submitted = false;
-    returnUrl: string;
-    public user: any = {
-      username: (localStorage.getItem('userid'))?atob(localStorage.getItem('userid')): '',
-      password: (localStorage.getItem('password'))?atob(localStorage.getItem('password')): ''
-    };
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  public user: any = {
+    username: (localStorage.getItem('userid')) ? atob(localStorage.getItem('userid')) : '',
+    password: (localStorage.getItem('password')) ? atob(localStorage.getItem('password')) : ''
+  };
 
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private common: CommonService) { }
 
-  get f(){
+  get f() {
     return this.loginForm.controls;
   }
 
@@ -38,25 +38,27 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
-    if(this.loginForm.invalid){
-      return ;
+    if (this.loginForm.invalid) {
+      return;
     }
     this.auth.signIn(this.loginForm.value).subscribe(
-      response=> {
-        if(response){
-          localStorage.setItem('user',response.username);
-          localStorage.setItem('token',response.token);
+      response => {
+        if (response) {
+          localStorage.setItem('user', response.username);
+          localStorage.setItem('token', response.token);
           this.common.checkLogin(true);
-          
-            if(this.route.snapshot.paramMap.get('data')){
+          if (response.username === 'admin@gmail.com') {
+            this.router.navigate(['/admin']);
+          } else {
+            if (this.route.snapshot.paramMap.get('data')) {
               //            this.router.navigate()
-                          console.log('checkOut');
-                        }else{
-                          this.router.navigate(['/home']);
-                        }
-          
+              console.log('checkOut');
+            } else {
+              this.router.navigate(['/home']);
+            }
+          }
         }
       }
     )

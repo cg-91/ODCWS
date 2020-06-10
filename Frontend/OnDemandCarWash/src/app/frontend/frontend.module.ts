@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { JasperoAlertsModule } from '@jaspero/ng-alerts';
 import { AlertComponent } from './alert/alert.component';
 import { LoginComponent } from './login/login.component';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent,
     AlertComponent,
     LoginComponent,
+    CustomerComponent,
   ],
   imports: [
     CommonModule,
