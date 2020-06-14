@@ -22,7 +22,7 @@ public class ServicePlanServiceImpl implements ServicePlanService{
 	}
 
 	@Override
-	public Optional<ServicePlan> getBySPId(String serviceplanid) {
+	public Optional<ServicePlan> getBySPId(Integer serviceplanid) {
 		Optional<ServicePlan> sp = servicePlanRepository.findByServiceplanid(serviceplanid);
 		return sp;
 	}

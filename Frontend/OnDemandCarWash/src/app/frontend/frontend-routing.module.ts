@@ -7,7 +7,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from '../frontend/helper/auth.guard';
-import { CustomerComponent } from './customer/customer.component';
+import { CarwashComponent } from './carwash/carwash.component';
 
 const routes: Routes = [
  
@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'abc', component: AbcComponent, canActivate: [AuthGuard]},
       { path: 'login', component: LoginComponent},
       { path: 'signup', component: RegisterComponent},
-      { path: 'customer', component: CustomerComponent},
+      { path: 'carwash', component: CarwashComponent},
       { path: '**', component: PagenotfoundComponent }
     ]
   },

@@ -1,0 +1,5 @@
+package com.capgemini.carwash.repository;
+
+public interface CartRepository {
+
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonService } from '../service';
 
 @Component({
   selector: 'app-frontheader',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontheaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private service: CommonService) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
+  isLoggedIn() {
+    if (this.service.isUserLoggedIn() == false) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }

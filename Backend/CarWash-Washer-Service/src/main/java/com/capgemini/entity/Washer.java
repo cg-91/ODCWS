@@ -18,7 +18,7 @@ public class Washer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String wash_id;
+	private Integer wash_id;
 	
 	@NotEmpty
 	private String email;

@@ -9,5 +9,5 @@ public interface PromoCodeService {
 
 	List<PromoCode> getAllPromoCode();
 	
-	Optional<PromoCode> getByPCId(String promocodeid);
+	Optional<PromoCode> getByPCId(Integer promocodeid);
 }

@@ -15,13 +15,13 @@ public class CarDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String carid;
+    private Integer carid;
 	
 	@NotEmpty
 	private String carname;
     
     @NotEmpty
-    private String car_model;
+    private String car_type;
     
     @NotEmpty
     private String colour;

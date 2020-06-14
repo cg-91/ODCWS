@@ -22,7 +22,7 @@ public class CarServiceImpl implements CarService{
 	}
 
 	@Override
-	public Optional<CarDetails> getCarById(String carid) {
+	public Optional<CarDetails> getCarById(Integer carid) {
 		Optional<CarDetails> carOptional = carRepository.findByCarid(carid);
 	//	CarDetails carDetails = carOptional.orElse(new CarDetails());
 		return carOptional;
@@ -41,7 +41,7 @@ public class CarServiceImpl implements CarService{
 	}
 
 	@Override
-	public void deleteCarById(String carid) {
+	public void deleteCarById(Integer carid) {
 		carRepository.deleteByCarid(carid);
 	}
 }

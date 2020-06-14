@@ -4,6 +4,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -67,6 +68,8 @@ public class AuthController {
 	@PostMapping("/signup")
 	public ResponseEntity register(@RequestBody Customer cust) {
 		log.info("Customer Signup Controller");
+		Random random = new Random();
+		cust.setCust_id(random.nextInt(1000));
 		Customer userExists = userService.findUserByEmail(cust.getEmail());
 		if (userExists != null) {
 			log.error("Username already exists");

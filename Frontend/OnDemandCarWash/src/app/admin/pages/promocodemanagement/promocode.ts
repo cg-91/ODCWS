@@ -1,6 +1,6 @@
 export class Promocode {
 
-    promocodeid: string;
+    promocodeid: number;
     promocode: string;
     percentage: number;
 }

@@ -1,7 +1,7 @@
 export class Car {
-    carid: string;
+    carid: number;
     carname: string;
-    car_model: string;
+    car_type: string;
     colour: string;
     reg_number: string;
     imageUrl: string;

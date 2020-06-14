@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import com.capgemini.carwash.entity.AddOn;
 
 @Repository
-public interface AddOnRepository extends MongoRepository<AddOn, String>{
+public interface AddOnRepository extends MongoRepository<AddOn, Integer>{
 
-	Optional<AddOn> findByAddonid(String addonid);
+	Optional<AddOn> findByAddonid(Integer addonid);
 	
-	void deleteByAddonid(String addonid);
+	void deleteByAddonid(Integer addonid);
 }

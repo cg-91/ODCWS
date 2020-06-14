@@ -12,14 +12,19 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<Addon>;
   public currentUser: Observable<Addon>;
 
-  constructor(private route : Router, private http: HttpClient) { 
+  constructor(private route: Router, private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<Addon>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
   public get currentUserValue(): Addon {
     return this.currentUserSubject.value;
-}
+  }
+
+  isUserLoggedIn(): boolean{
+    return localStorage.getItem('token') ? true : false;
+  }
+
 
   // userAuth(username, password){
   //   if(username === 'admin@gmail.com' || password === 'admin'){

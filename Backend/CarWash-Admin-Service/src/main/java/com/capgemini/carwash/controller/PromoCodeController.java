@@ -3,6 +3,7 @@ package com.capgemini.carwash.controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +46,7 @@ public class PromoCodeController {
 	}
 	
 	@GetMapping("/promocode/{id}")
-	public ResponseEntity<?> getPromoCodeById(@PathVariable("id") String promocodeid){
+	public ResponseEntity<?> getPromoCodeById(@PathVariable("id") Integer promocodeid){
 		Optional<PromoCode> pcOptional = promoCodeService.getByPCId(promocodeid);
 		log.info("---Searching for a PromoCode with id {} ", promocodeid);
 		if(!pcOptional.isPresent()) {
@@ -57,6 +58,8 @@ public class PromoCodeController {
 	
 	@PostMapping("/promocode/store")
 	public ResponseEntity<?> storePromoCodeDetails(@RequestBody PromoCode code){
+		Random random = new Random();
+		code.setPromocodeid(random.nextInt(1000));
 		Optional<PromoCode> pcOptional = promoCodeService.getByPCId(code.getPromocodeid());
 		if(!pcOptional.isPresent()) {
 			PromoCode pc = promoCodeRepository.save(code);
@@ -67,7 +70,7 @@ public class PromoCodeController {
 	}
 	
 	@DeleteMapping("/promocode/delete/{id}")
-	public ResponseEntity<?> deleteByPCId(@PathVariable("id") String promocodeid){
+	public ResponseEntity<?> deleteByPCId(@PathVariable("id") Integer promocodeid){
 		Optional<PromoCode> pcOptional = promoCodeService.getByPCId(promocodeid);
 		if(!pcOptional.isPresent()) {
 			promoCodeRepository.deleteById(promocodeid);

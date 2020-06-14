@@ -22,7 +22,7 @@ export class CarsaveComponent implements OnInit {
     this.carFrom = this.formBuilder.group(
       {
         carname: ['', [Validators.required]],
-        car_model: ['', [Validators.required]],
+        car_type: ['', [Validators.required]],
         colour: ['', [Validators.required]],
         reg_number: ['', [Validators.required]],
         imageUrl: ['', [Validators.required]],

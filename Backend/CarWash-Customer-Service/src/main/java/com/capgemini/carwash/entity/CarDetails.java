@@ -13,7 +13,7 @@ import lombok.Data;
 public class CarDetails {
 
 	@Id
-    private Long car_id;
+    private Integer car_id;
 
     @NaturalId
     @NotEmpty

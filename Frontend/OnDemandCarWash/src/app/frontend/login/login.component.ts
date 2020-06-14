@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
               //            this.router.navigate()
               console.log('checkOut');
             } else {
-              this.router.navigate(['/home']);
+              this.router.navigate(['/carwash']);
             }
           }
         }

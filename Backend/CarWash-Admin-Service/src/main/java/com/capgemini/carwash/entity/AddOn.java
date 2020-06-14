@@ -15,7 +15,7 @@ public class AddOn {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String addonid;
+	private Integer addonid;
 	
 	@NotEmpty
 	private String name;

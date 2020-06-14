@@ -19,13 +19,13 @@ export class AuthService {
 
   signUp(obj): Observable<any>{
     if(obj.role === 'customer'){
-      return this.http.post(frontendApi + '/auth/signup', obj).pipe(
+      return this.http.post(frontendApi + 'auth/signup', obj).pipe(
         map(response=>{
           return response;
         })
       )
     } else if(obj.role === 'washer'){
-      return this.http.post(backendApi + '/auth/signup', obj).pipe(
+      return this.http.post(backendApi + 'auth/signup', obj).pipe(
         map(response=>{
           return response;
         })
@@ -57,13 +57,4 @@ export class AuthService {
       )
     }
   }
-
-  // loggedIn(){
-  //   let user = sessionStorage.getItem('');
-  //   return !(user == null);
-  // }
-
-  // loggedOut(){
-  //   sessionStorage.removeItem('');
-  // }
 }

@@ -3,6 +3,7 @@ package com.capgemini.carwash.controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -51,7 +52,7 @@ public class ServicePlanController {
 	
 	
 	@GetMapping("/serviceplan/{id}")
-	public ResponseEntity<?> getPromoCodeById(@PathVariable("id") String serviceplanid){
+	public ResponseEntity<?> getPromoCodeById(@PathVariable("id") Integer serviceplanid){
 		Optional<ServicePlan> spOptional = servicePlanRepository.findByServiceplanid(serviceplanid);
 		log.info("---Searching for a SevicePlan with id {} ", serviceplanid);
 		if(!spOptional.isPresent()) {
@@ -63,6 +64,8 @@ public class ServicePlanController {
 	
 	@PostMapping("/serviceplan/store")
 	public ResponseEntity<?> storeServicePlanDetails(@RequestBody ServicePlan plan){
+		Random random = new Random();
+		plan.setServiceplanid(random.nextInt(1000));
 		Optional<ServicePlan> spOptional = servicePlanService.getBySPId(plan.getServiceplanid());
 		if(!spOptional.isPresent()) {
 			ServicePlan sp = servicePlanRepository.save(plan);
@@ -73,7 +76,7 @@ public class ServicePlanController {
 	}
 	
 	@DeleteMapping("/serviceplan/delete/{id}")
-	public ResponseEntity<?> deleteBySPId(@PathVariable("id") String serviceplanid){
+	public ResponseEntity<?> deleteBySPId(@PathVariable("id") Integer serviceplanid){
 		Optional<ServicePlan> spOptional = servicePlanService.getBySPId(serviceplanid);
 		if(!spOptional.isPresent()) {
 			servicePlanRepository.deleteById(serviceplanid);

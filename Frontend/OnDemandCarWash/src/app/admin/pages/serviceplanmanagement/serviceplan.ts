@@ -1,6 +1,6 @@
 export class Serviceplan {
 
-    serviceplanid: string;
+    serviceplanid: number;
     spname: string;
     price: number;
 }

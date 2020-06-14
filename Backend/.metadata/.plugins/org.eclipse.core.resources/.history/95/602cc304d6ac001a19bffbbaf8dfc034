@@ -1,0 +1,13 @@
+package com.capgemini.carwash.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import com.capgemini.carwash.entity.CartItem;
+
+@Repository
+public interface CartItemRepository extends MongoRepository<CartItem, Integer>{
+	
+	void deleteByCartItemId(Integer cartItemId);
+
+}

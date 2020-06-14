@@ -22,7 +22,7 @@ public class PromoCodeServiceImpl implements PromoCodeService{
 	}
 
 	@Override
-	public Optional<PromoCode> getByPCId(String promocodeid) {
+	public Optional<PromoCode> getByPCId(Integer promocodeid) {
 		Optional<PromoCode> pmOptional = promoCodeRepository.findByPromocodeid(promocodeid);
 		return pmOptional;
 	}

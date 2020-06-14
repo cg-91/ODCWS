@@ -22,7 +22,7 @@ public class AddOnServiceImpl implements AddOnService{
 	}
 
 	@Override
-	public Optional<AddOn> getByAddOnid(String addonid) {
+	public Optional<AddOn> getByAddOnid(Integer addonid) {
 		Optional<AddOn> addOn = addOnRepository.findByAddonid(addonid); 
 		return addOn;
 	}
@@ -33,7 +33,7 @@ public class AddOnServiceImpl implements AddOnService{
 	}
 
 	@Override
-	public void deleteByAddOnid(String addonid) {
+	public void deleteByAddOnid(Integer addonid) {
 		addOnRepository.deleteByAddonid(addonid);
 	}
 }

@@ -1,0 +1,5 @@
+package com.capgemini.carwash.controller;
+
+public class CartController {
+
+}

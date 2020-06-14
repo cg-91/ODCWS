@@ -8,13 +8,13 @@ import org.springframework.stereotype.Repository;
 import com.capgemini.carwash.entity.CarDetails;
 
 @Repository
-public interface CarRepository extends MongoRepository<CarDetails, String>{
+public interface CarRepository extends MongoRepository<CarDetails, Integer>{
 
-	Optional<CarDetails> findByCarid(String carid);
+	Optional<CarDetails> findByCarid(Integer carid);
 
 	Optional<CarDetails> findByCarname(String carname);
 	
-	void deleteByCarid(String carid);
+	void deleteByCarid(Integer carid);
 	
-	boolean existsByCarid(String carid);
+	boolean existsByCarid(Integer carid);
 }

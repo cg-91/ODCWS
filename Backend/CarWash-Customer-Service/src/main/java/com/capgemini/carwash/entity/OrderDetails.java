@@ -14,7 +14,7 @@ import lombok.Data;
 public class OrderDetails {
 
 	@Id
-	private String order_id;
+	private Integer order_id;
 	
 	@NotEmpty
 	private Date orderdate;

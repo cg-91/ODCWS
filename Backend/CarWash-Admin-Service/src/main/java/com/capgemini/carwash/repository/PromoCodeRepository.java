@@ -6,9 +6,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.capgemini.carwash.entity.PromoCode;
 
-public interface PromoCodeRepository extends MongoRepository<PromoCode, String> {
+public interface PromoCodeRepository extends MongoRepository<PromoCode, Integer> {
 
-	Optional<PromoCode> findByPromocodeid(String promocodeid);
+	Optional<PromoCode> findByPromocodeid(Integer promocodeid);
 
-	void deleteByPromocodeid(String promocodeid);
+	void deleteByPromocodeid(Integer promocodeid);
 }

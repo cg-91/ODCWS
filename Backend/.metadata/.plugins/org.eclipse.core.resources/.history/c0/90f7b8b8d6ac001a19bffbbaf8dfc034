@@ -1,0 +1,25 @@
+package com.capgemini.carwash.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.capgemini.carwash.entity.CartItem;
+import com.capgemini.carwash.repository.CartItemRepository;
+
+@Service
+public class CartItemService {
+
+	@Autowired
+	private CartItemRepository repository;
+	
+	public CartItem addCertItem(CartItem item) {
+		return repository.save(item);
+	}
+	
+	public void deleteCartItem(Integer cartItemId) {
+//		repository.deleteByCartItemId(cartItemId);
+		
+		repository.deleteById(cartItemId);
+	}
+	
+}

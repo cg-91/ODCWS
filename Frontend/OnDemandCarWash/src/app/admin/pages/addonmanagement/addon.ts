@@ -1,6 +1,6 @@
 export class Addon {
 
-    addonid: string;
+    addonid: number;
     name: string;
     price: number;
 }

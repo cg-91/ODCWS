@@ -11,5 +11,4 @@ export class FrontendComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

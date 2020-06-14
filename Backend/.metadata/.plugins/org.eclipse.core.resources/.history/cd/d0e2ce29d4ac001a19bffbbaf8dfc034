@@ -1,0 +1,5 @@
+package com.capgemini.carwash.entity;
+
+public class CartItem {
+
+}

@@ -9,9 +9,9 @@ public interface AddOnService {
 
 	List<AddOn> getAllAddOnList();
 	
-	Optional<AddOn> getByAddOnid(String addonid);
+	Optional<AddOn> getByAddOnid(Integer addonid);
 	
 	AddOn saveAddOnDetails(AddOn addon);
 	
-	void deleteByAddOnid(String addonid);
+	void deleteByAddOnid(Integer addonid);
 }

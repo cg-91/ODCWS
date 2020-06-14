@@ -15,7 +15,7 @@ public class PromoCode {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String promocodeid;
+	private Integer promocodeid;
 	
 	@NotEmpty
 	private String promocode;

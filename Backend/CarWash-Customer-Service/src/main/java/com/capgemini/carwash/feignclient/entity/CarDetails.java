@@ -7,7 +7,7 @@ public class CarDetails {
 
     private String carid;
 	private String carname;
-    private String car_model;
+    private String car_type;
     private String colour;
     private String reg_number;
     private String imageUrl;

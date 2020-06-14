@@ -23,7 +23,7 @@ public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String cust_id;
+	private Integer cust_id;
 	
 	@NotEmpty
 	private String email;

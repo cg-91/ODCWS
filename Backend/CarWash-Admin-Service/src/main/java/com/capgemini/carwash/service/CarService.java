@@ -10,11 +10,11 @@ public interface CarService {
 
 	 List<CarDetails> getAllCars();
 	 
-	 Optional<CarDetails> getCarById(String carid);
+	 Optional<CarDetails> getCarById(Integer carid);
 	 
 	 Optional<CarDetails> getCarByName(String carname);
 	 
 	 CarDetails saveCar(CarDetails carDetails);
 	 
-	 void deleteCarById(String carid);
+	 void deleteCarById(Integer carid);
 }

@@ -3,6 +3,7 @@ package com.capgemini.carwash.controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class AddOnController {
 	@GetMapping("/addon/addonlisting")
 	public ResponseEntity<?> getAllAddOnDetails(){
 	//	List<AddOn> addOnList = addOnService.getAllAddOnList();
-		Map<Object, Object> addonMap = new HashMap<Object, Object>();
+		Map<String, Object> addonMap = new HashMap<String, Object>();
 		addonMap.put("status", "success");
 		addonMap.put("data", addOnService.getAllAddOnList());
 		log.info("---Fetching all the AddOn Details---");
@@ -41,7 +42,7 @@ public class AddOnController {
 	}
 	
 	@GetMapping("/addonid/{id}")
-	public ResponseEntity<?> getAddOnById(@PathVariable("id") String addonid){
+	public ResponseEntity<?> getAddOnById(@PathVariable("id") Integer addonid){
 		Optional<AddOn> addOn = addOnService.getByAddOnid(addonid);
 		log.info("---Searching for a Addon with id {} ", addonid);
 		if(!addOn.isPresent()) {
@@ -56,6 +57,8 @@ public class AddOnController {
 	public ResponseEntity<?> saveAddOnDetails(@RequestBody AddOn addOn){
 		Optional<AddOn> addon = addOnService.getByAddOnid(addOn.getAddonid());
 		if(!addon.isPresent()) {
+			Random random = new Random();
+			addOn.setAddonid(random.nextInt(1000));
 			AddOn addons = addOnService.saveAddOnDetails(addOn);
 			log.info("---Save AddOn details---");
 			return ResponseEntity.ok(addons);
@@ -65,14 +68,14 @@ public class AddOnController {
 	}
 	
 	@DeleteMapping("/delete/addon/{id}")
-	public ResponseEntity<?> deleteAddOnById(@PathVariable("id") String addonid){
+	public ResponseEntity<?> deleteAddOnById(@PathVariable("id") Integer addonid){
 		Optional<AddOn> addon = addOnService.getByAddOnid(addonid);
 		if(!addon.isPresent()) {
+			log.info("---Delete AddOn details---");
 			addOnService.deleteByAddOnid(addonid);
 		}else{
 			throw new BadRequestException("Id dosen't exist");
 		}
-		log.info("---Delete AddOn details---");
 		return ResponseEntity.ok(addon);
 	}
 	

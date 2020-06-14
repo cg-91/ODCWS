@@ -4,6 +4,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -63,14 +64,16 @@ public class AuthController {
 
 	@SuppressWarnings("rawtypes")
 	@PostMapping("/signup")
-	public ResponseEntity register(@RequestBody Washer cust) {
+	public ResponseEntity register(@RequestBody Washer washer) {
+		Random random = new Random();
+		washer.setWash_id(random.nextInt(1000));
 		log.info("Washer signup Controller");
-		Washer userExists = userService.findUserByEmail(cust.getEmail());
+		Washer userExists = userService.findUserByEmail(washer.getEmail());
 		if (userExists != null) {
 			log.error("Username already exists");
-			throw new BadCredentialsException("User with username: " + cust.getEmail() + " already exists");
+			throw new BadCredentialsException("User with username: " + washer.getEmail() + " already exists");
 		}
-		userService.saveUser(cust);
+		userService.saveUser(washer);
 		Map<Object, Object> model = new HashMap<>();
 		model.put("message", "User registered successfully");
 		return ok(model);

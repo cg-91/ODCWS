@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 import javax.validation.Valid;
 
@@ -57,7 +58,7 @@ public class CarController {
 	}
 	
 	@GetMapping("/carid/{id}")
-	public ResponseEntity<?> getCarsById(@PathVariable("id") String carid){
+	public ResponseEntity<?> getCarsById(@PathVariable("id") Integer carid){
 		Optional<CarDetails> carDetails = carService.getCarById(carid);
 		log.info("===searching for a car with id {}", carid);
 		if(!carDetails.isPresent()) {
@@ -76,7 +77,8 @@ public class CarController {
 	
 	@PostMapping("/car/store")
 	public ResponseEntity<?> storeCarDetails(@Valid @RequestBody CarDetails carDetails){
-		
+		Random random = new Random();
+		carDetails.setCarid(random.nextInt(1000));
 		if (carRepository.existsByCarid(carDetails.getCarid())) {
 			throw new BadRequestException("Id is already exist");
 		}
@@ -87,7 +89,7 @@ public class CarController {
 
 	
 	@DeleteMapping("/delete/car/{id}")
-	public ResponseEntity<?> deleteCarDetails(@PathVariable("id") String carid){
+	public ResponseEntity<?> deleteCarDetails(@PathVariable("id") Integer carid){
 		if (carRepository.existsByCarid(carid)) {
 			carService.deleteCarById(carid);
 		}else {
