@@ -10,7 +10,11 @@
                       <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Promo Code</label>
                           <div class="col-sm-9">
-                              <input type="text" class="form-control" formControlName="promocode" placeholder="Promo code"/>
+                              <input type="text" class="form-control" formControlName="promocode" placeholder="Promo code"
+                              [ngClass]="{ 'is-invalid': submitted && f1.promocode.errors }" />
+                              <div *ngIf="submitted && f1.promocode.errors" class="invalid-feedback">
+                                  <div *ngIf="f1.promocode.errors.required">PromoCode is required</div>
+                              </div>
                           </div>
                       </div>
                   </div>
@@ -20,7 +24,11 @@
                       <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Discout %</label>
                           <div class="col-sm-9">
-                              <input type="text" class="form-control" formControlName="percentage" placeholder="Discount"/>
+                              <input type="text" class="form-control" formControlName="percentage" placeholder="Discount"
+                              [ngClass]="{ 'is-invalid': submitted && f1.percentage.errors }" />
+                              <div *ngIf="submitted && f1.percentage.errors" class="invalid-feedback">
+                                  <div *ngIf="f1.percentage.errors.required">Discount percentage is required</div>
+                              </div>
                           </div>
                       </div>
                   </div>

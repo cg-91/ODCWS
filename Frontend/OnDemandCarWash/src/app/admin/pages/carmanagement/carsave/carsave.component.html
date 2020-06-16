@@ -10,8 +10,11 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Car Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" formControlName="carname"
-                                    placeholder="car name" />
+                                <input type="text" class="form-control" formControlName="carname" placeholder="car name"
+                                    [ngClass]="{ 'is-invalid': submitted && f1.carname.errors }" />
+                                <div *ngIf="submitted && f1.carname.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.carname.errors.required">Car name is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -22,7 +25,11 @@
                             <label class="col-sm-3 col-form-label">Car Type</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Car Type"
-                                    formControlName="car_type" />
+                                    formControlName="car_type"
+                                    [ngClass]="{ 'is-invalid': submitted && f1.car_type.errors }" />
+                                <div *ngIf="submitted && f1.car_type.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.car_type.errors.required">Car type is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,7 +40,11 @@
                             <label class="col-sm-3 col-form-label">Colour</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Car Colour"
-                                    formControlName="colour" />
+                                    formControlName="colour"
+                                    [ngClass]="{ 'is-invalid': submitted && f1.colour.errors }" />
+                                <div *ngIf="submitted && f1.colour.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.colour.errors.required">Colour is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -44,7 +55,11 @@
                             <label class="col-sm-3 col-form-label">Registration Number</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Registration No."
-                                    formControlName="reg_number" />
+                                    formControlName="reg_number"
+                                    [ngClass]="{ 'is-invalid': submitted && f1.reg_number.errors }" />
+                                <div *ngIf="submitted && f1.reg_number.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.reg_number.errors.required">Registration Number is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,13 +70,17 @@
                             <label class="col-sm-3 col-form-label">Image URL</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Image URL"
-                                    formControlName="imageUrl" />
+                                    formControlName="imageUrl"
+                                    [ngClass]="{ 'is-invalid': submitted && f1.imageUrl.errors }" />
+                                <div *ngIf="submitted && f1.imageUrl.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.imageUrl.errors.required">Image Url is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
-                    <button class="btn btn-light" routerLink="/carlist">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+                <button class="btn btn-light" routerLink="/carlist">Cancel</button>
             </form>
         </div>
     </div>

@@ -11,7 +11,11 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" formControlName="username" placeholder="Username"/>
+                                <input type="text" class="form-control" formControlName="username" placeholder="Username"
+                                [ngClass]="{ 'is-invalid': submitted && f1.username.errors }"/>
+                                <div *ngIf="submitted && f1.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.username.errors.required">Username is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -19,7 +23,11 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Role</label>
                             <div class="col-sm-9">
-                                <select class="form-control" formControlName="role" placeholder="Roles">
+                                <select class="form-control" formControlName="role" placeholder="Roles"
+                                [ngClass]="{ 'is-invalid': submitted && f1.role.errors }">
+                                <div *ngIf="submitted && f1.role.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.role.errors.required">Role is required</div>
+                                </div>
                                     <option>customer</option>
                                     <option>washer</option>
                                 </select>
@@ -33,7 +41,10 @@
                             <label class="col-sm-3 col-form-label">Email address</label>
                             <div class="col-sm-9">
                                 <input type="email" class="form-control" id="email" placeholder="Email" name="email"
-                                formControlName="email">
+                                formControlName="email" [ngClass]="{ 'is-invalid': submitted && f1.email.errors }"/>
+                                <div *ngIf="submitted && f1.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.email.errors.required">Email is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -42,7 +53,10 @@
                             <label class="col-sm-3 col-form-label">Password</label>
                             <div class="col-sm-9">
                                 <input type="password" class="form-control" id="password" placeholder="Password"
-                                    name="password" formControlName="password">
+                                    name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f1.password.errors }"/>
+                                    <div *ngIf="submitted && f1.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.password.errors.required">Password is required</div>
+                                    </div>
                             </div>
                         </div>
                     </div>

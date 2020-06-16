@@ -10,7 +10,11 @@
                       <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Service Plan</label>
                           <div class="col-sm-9">
-                              <input type="text" class="form-control" formControlName="spname" placeholder="ServicePlan"/>
+                              <input type="text" class="form-control" formControlName="spname" placeholder="ServicePlan"
+                              [ngClass]="{ 'is-invalid': submitted && f1.spname.errors }" />
+                              <div *ngIf="submitted && f1.spname.errors" class="invalid-feedback">
+                                  <div *ngIf="f1.spname.errors.required">Service Plan is required</div>
+                              </div>
                           </div>
                       </div>
                   </div>
@@ -20,7 +24,11 @@
                       <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Price</label>
                           <div class="col-sm-9">
-                              <input type="text" class="form-control" placeholder="price" formControlName="price"/>
+                              <input type="text" class="form-control" placeholder="price" formControlName="price"
+                              [ngClass]="{ 'is-invalid': submitted && f1.price.errors }" />
+                              <div *ngIf="submitted && f1.price.errors" class="invalid-feedback">
+                                  <div *ngIf="f1.price.errors.required">Price is required</div>
+                              </div>
                           </div>
                       </div>
                   </div>

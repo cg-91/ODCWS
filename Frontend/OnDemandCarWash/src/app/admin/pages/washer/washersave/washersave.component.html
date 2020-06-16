@@ -1,43 +1,56 @@
 <div class="col-12 grid-margin">
-  <div class="card">
-      <div class="card-body">
-          <h4 class="card-title">Add Washer Details</h4>
-          <form class="form-sample" [formGroup]="washerFrom" (ngSubmit)="onSubmit()">
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Username</label>
-                          <div class="col-sm-9">
-                              <input type="text" class="form-control" formControlName="username" placeholder="Username"/>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Email address</label>
-                          <div class="col-sm-9">
-                              <input type="email" class="form-control" id="email" placeholder="Email" name="email"
-                              formControlName="email">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Password</label>
-                          <div class="col-sm-9">
-                              <input type="password" class="form-control" id="password" placeholder="Password"
-                                  name="password" formControlName="password">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
-              <button class="btn btn-light" routerLink="/home">Cancel</button>
-          </form>
-      </div>
-  </div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Washer Details</h4>
+            <form class="form-sample" [formGroup]="washerFrom" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Username</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" formControlName="username"
+                                    placeholder="Username">
+                                    <!-- [ngClass]="{ 'is-invalid': submitted && f1.promocode.errors }" />
+                                <div *ngIf="submitted && f1.promocode.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.promocode.errors.required">PromoCode is required</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Email address</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email"
+                                    formControlName="email">
+                                    <!-- [ngClass]="{ 'is-invalid': submitted && f1.promocode.errors }" />
+                                <div *ngIf="submitted && f1.promocode.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.promocode.errors.required">PromoCode is required</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="password" placeholder="Password"
+                                    name="password" formControlName="password">
+                                    <!-- [ngClass]="{ 'is-invalid': submitted && f1.promocode.errors }" />
+                                <div *ngIf="submitted && f1.promocode.errors" class="invalid-feedback">
+                                    <div *ngIf="f1.promocode.errors.required">PromoCode is required</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+                <button class="btn btn-light" routerLink="/home">Cancel</button>
+            </form>
+        </div>
+    </div>
 </div>

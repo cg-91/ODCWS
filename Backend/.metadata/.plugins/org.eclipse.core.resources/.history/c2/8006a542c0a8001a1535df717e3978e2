@@ -1,6 +1,0 @@
-package com.capgemini.carwash.feignclient.service;
-
-@FeignClient(name = "CarWash-Admin", url = "http://localhost:2002")
-public interface FeignClientService {
-
-}

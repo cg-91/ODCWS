@@ -3,6 +3,7 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { CommonService } from '../service/common.service';
+import { AlertService } from '../service/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private auth: AuthService,
-    private common: CommonService) { }
+    private common: CommonService,
+    private alertService: AlertService) { }
 
   get f() {
     return this.loginForm.controls;
@@ -40,12 +42,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.alertService.clear();
     if (this.loginForm.invalid) {
       return;
     }
     this.auth.signIn(this.loginForm.value).subscribe(
       response => {
-        if (response) {
+        if (response.status === 200) {
+          this.alertService.success('You have logged in successfully');
           localStorage.setItem('user', response.username);
           localStorage.setItem('token', response.token);
           this.common.checkLogin(true);
@@ -59,6 +63,10 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/carwash']);
             }
           }
+        }
+        else{
+          console.log(response.message);
+          this.alertService.error('Please enter valid credentials');   
         }
       }
     )

@@ -1,21 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertType, AlertSettings, AlertsService } from '@jaspero/ng-alerts';
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AlertService } from '../../frontend/service/alert.service';
 
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss']
 })
-export class AlertComponent implements OnInit {
+export class AlertComponent implements OnInit, OnDestroy {
+  private subscription: Subscription;
+    message: any;
 
-  constructor(  private _alert: AlertsService ) { }
+  constructor(  private alertService: AlertService ) { }
 
   ngOnInit() {
-  }
+    this.subscription = this.alertService.getAlert()
+        .subscribe(message => {
+            switch (message && message.type) {
+                case 'success':
+                    message.cssClass = 'alert alert-success';
+                    break;
+                case 'error':
+                    message.cssClass = 'alert alert-danger';
+                    break;
+            }
+            this.message = message;
+        });
+}
 
-  openAlert(type: AlertType, title: string, message: string, options: AlertSettings) {
-    this._alert.create(type, title, message, options);
-  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+}
 
 }
