@@ -18,4 +18,4 @@ spring.application.name=CarWash-Admin-Service
 #security.basic.enabled=false
 server.port=8083
 
-eureka.client.service-url.default-zone=http://localhost:8761/eureka/
+#eureka.client.service-url.default-zone=http://localhost:8761/eureka/
